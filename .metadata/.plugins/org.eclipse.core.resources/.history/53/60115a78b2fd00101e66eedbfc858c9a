@@ -1,0 +1,35 @@
+package com.sms.student.entity;
+
+import com.sms.student.enums.AdmissionMode;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity	
+public class Student {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Integer rollno;
+	private String name;
+	private String mail;
+	private String phonenumber;
+	private String mothername;
+	private String fathername;
+	private String parentpno;
+	private String Address;
+	private String school;
+	private short tenthmark;
+	private short twelfthhmark;
+	private String department;
+	@Enumerated(EnumType.STRING)
+	private AdmissionMode admissionmode;
+	
+	
+	
+	
+}

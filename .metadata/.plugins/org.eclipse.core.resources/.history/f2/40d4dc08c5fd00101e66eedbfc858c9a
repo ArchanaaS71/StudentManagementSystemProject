@@ -1,0 +1,56 @@
+package com.sms.student.mapper;
+
+import org.springframework.stereotype.Component;
+
+import com.sms.student.dto.request.CreateStudentRequest;
+import com.sms.student.dto.response.StudentResponse;
+import com.sms.student.entity.Student;
+
+@Component
+public class StudentMapper {
+	
+
+	public static Student toEntity(CreateStudentRequest req) {
+        if (req == null) return null;
+
+        Student s = new Student();
+        s.setName(req.getName());
+        s.setMail(req.getMail());
+        s.setPhonenumber(req.getPhonenumber());
+        s.setMothername(req.getMothername());
+        s.setFathername(req.getFathername());
+        s.setParentpno(req.getParentpno());
+        s.setAddress(req.getAddress());
+        s.setSchool(req.getSchool());
+        s.setTenthper(req.getTenthper());
+        s.setTwelfthper(req.getTwelfthper());
+        s.setDepartment(req.getDepartment());
+        s.setAdmissionmode(req.getAdmissionmode());
+
+        return s;
+    }
+
+
+	public static StudentResponse toResponse(Student s) {
+        if (s == null) return null;
+
+        StudentResponse res = new StudentResponse();
+        res.setRollno(s.getRollno());
+        res.setName(s.getName());
+        res.setMail(s.getMail());
+        res.setPhonenumber(s.getPhonenumber());
+        res.setMothername(s.getMothername());
+        res.setFathername(s.getFathername());
+        res.setParentpno(s.getParentpno());
+        res.setAddress(s.getAddress());
+        res.setSchool(s.getSchool());
+        res.setTenthper(s.getTenthper());
+        res.setTwelfthper(s.getTwelfthper());
+        res.setDepartment(s.getDepartment());
+        res.setAdmissionmode(s.getAdmissionmode());
+
+        return res;
+    }
+
+
+}

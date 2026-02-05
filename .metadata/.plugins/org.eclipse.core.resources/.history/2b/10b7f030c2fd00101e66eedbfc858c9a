@@ -1,0 +1,6 @@
+package com.sms.student.repository;
+
+@Repository
+public interface StudentRepository extends JpaRepository<Student, Integer>{
+
+}

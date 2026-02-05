@@ -1,0 +1,75 @@
+package com.sms.student.service;
+
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.sms.student.dto.request.CreateStudentRequest;
+import com.sms.student.dto.response.StudentResponse;
+import com.sms.student.entity.Student;
+import com.sms.student.mapper.StudentMapper;
+import com.sms.student.repository.StudentRepository;
+
+import jakarta.validation.Valid;
+@Service
+public class StudentServiceImpl implements StudentService {
+
+	Logger logger = LoggerFactory.getLogger(StudentServiceImpl.class);
+	
+	@Autowired
+	private StudentRepository studRepo;
+	
+	@Override
+	public ResponseEntity<?> addStudent(@Valid CreateStudentRequest request) {
+
+        if (studRepo.findByMail(request.getMail()).isPresent()) {
+            logger.warn("Student with mail already exists: {}", request.getMail());
+            return new ResponseEntity<>("Student mail already exists", HttpStatus.CONFLICT);
+        }
+
+        Student student = StudentMapper.toEntity(request);
+        Student saved = studRepo.save(student);
+        StudentResponse response = StudentMapper.toResponse(saved);
+
+        logger.info("Student added successfully: {}", saved.getRollno());
+
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
+
+	}
+
+	@Override
+	public ResponseEntity<?> displayAllStudents() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<?> displayStudentByRoll(Integer rollno) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<List<StudentResponse>> getStudentsByDepartment(String department) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<?> updateStudents(@Valid CreateStudentRequest request) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<?> deleteProductById(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

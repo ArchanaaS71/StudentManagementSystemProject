@@ -1,0 +1,12 @@
+package com.sms.student.mapper;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class StudentMapper {
+	
+	public StudentResponse toResponse(Student student) {
+		return new StudentResponse(student.get)
+	}
+
+}

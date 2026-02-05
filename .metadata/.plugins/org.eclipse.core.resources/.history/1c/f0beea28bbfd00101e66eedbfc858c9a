@@ -1,0 +1,5 @@
+package com.sms.student.dto.response;
+
+public class StudentResponse {
+
+}

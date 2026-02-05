@@ -1,0 +1,5 @@
+package com.sms.student.dto.request;
+
+public class UpdateStudentRequest {
+
+}

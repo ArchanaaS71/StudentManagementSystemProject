@@ -1,0 +1,6 @@
+package com.sms.student.service;
+
+
+public class StudentServiceImpl {
+
+}

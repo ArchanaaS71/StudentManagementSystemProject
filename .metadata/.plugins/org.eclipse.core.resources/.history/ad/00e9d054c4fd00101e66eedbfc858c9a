@@ -1,0 +1,52 @@
+package com.sms.student.service;
+
+import java.util.List;
+
+import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
+
+import com.sms.student.dto.request.CreateStudentRequest;
+import com.sms.student.dto.response.StudentResponse;
+
+import jakarta.validation.Valid;
+
+public class StudentServiceImpl implements StudentService {
+
+	Logger logger = LoggerFactory.getLogger(StudentServiceImpl.class);
+	@Override
+	public ResponseEntity<?> addStudent(@Valid CreateStudentRequest request) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<?> displayAllStudents() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<?> displayStudentByRoll(Integer rollno) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<List<StudentResponse>> getStudentsByDepartment(String department) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<?> updateStudents(@Valid CreateStudentRequest request) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<?> deleteProductById(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

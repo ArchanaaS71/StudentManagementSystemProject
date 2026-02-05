@@ -1,0 +1,62 @@
+package com.sms.student.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.sms.student.dto.request.CreateStudentRequest;
+import com.sms.student.dto.request.UpdateStudentRequest;
+import com.sms.student.dto.response.*;
+import com.sms.student.service.StudentService;
+
+
+import jakarta.validation.Valid;
+
+@RestController
+@RequestMapping("/student")
+public class StudentController {
+
+	@Autowired
+	private StudentService studentService;
+	
+	@PostMapping
+	public ResponseEntity<?> addStudent(@Valid @RequestBody CreateStudentRequest request){
+		return studentService.addStudent(request);
+	}
+	
+	@GetMapping
+	public ResponseEntity<?> displayStudents(){
+		return studentService.displayAllStudents();
+	}
+	
+	@GetMapping("/roll/{rollno}")
+	public ResponseEntity<?> getStudentByRoll(@PathVariable Integer rollno){
+		return studentService.displayStudentByRoll(rollno);
+	}
+	
+	@GetMapping("/dept/{department}")
+	public ResponseEntity<List<StudentResponse>> getStudentByDepartment(@PathVariable String department){
+		return  studentService.getStudentsByDepartment(department);
+	}
+	
+	@PutMapping("/update")
+	public ResponseEntity<?> updateStudent(@Valid @RequestBody UpdateStudentRequest request){
+		return studentService.updateStudents(request);
+	}
+	@DeleteMapping("/{id}")
+	public ResponseEntity<?> deleteStudents(@PathVariable Integer id){
+		return studentService.deleteProductById(id);
+	}
+	
+	
+}
+

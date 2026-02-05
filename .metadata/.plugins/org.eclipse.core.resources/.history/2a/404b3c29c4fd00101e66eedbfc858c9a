@@ -1,0 +1,28 @@
+package com.sms.student.service;
+
+import java.util.List;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.sms.student.dto.request.CreateStudentRequest;
+import com.sms.student.dto.response.StudentResponse;
+
+import jakarta.validation.Valid;
+
+@Service
+public interface StudentService {
+
+	ResponseEntity<?> addStudent(@Valid CreateStudentRequest request);
+
+	ResponseEntity<?> displayAllStudents();
+
+	ResponseEntity<?> displayStudentByRoll(Integer rollno);
+
+	ResponseEntity<List<StudentResponse>> getStudentsByDepartment(String department);
+
+	ResponseEntity<?> updateStudents(@Valid CreateStudentRequest request);
+
+	ResponseEntity<?> deleteProductById(Integer id);
+
+}

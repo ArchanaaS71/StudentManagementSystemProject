@@ -1,0 +1,42 @@
+package com.sms.student.dto.request;
+
+import com.sms.student.enums.AdmissionMode;
+
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+
+public class CreateStudentRequest {
+	@NotBlank
+	private String name;
+	@Email
+	private String mail;
+	@Pattern(regexp="(^$|[0-9]{10})")
+	private String phonenumber;
+	@Size(min = 3)
+	private String mothername;
+	@Size(min = 3)
+	private String fathername;
+	@Pattern(regexp="(^$|[0-9]{10})")
+	private String parentpno;
+	@NotEmpty
+	private String Address;
+	@NotBlank
+	private String school;
+	@NotNull
+	private Byte tenthper;
+	@NotNull
+	private Byte twelfthper;
+	@NotBlank
+	private String department;
+	@NotEmpty
+	private AdmissionMode admissionmode;
+}

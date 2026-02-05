@@ -1,0 +1,59 @@
+package com.sms.student.dto.request;
+
+
+
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+
+public class UpdateStudentRequest {
+
+	@NotNull
+	private Integer RollNo;
+	@Email
+	@NotBlank
+	private String mail;
+	@Pattern(regexp="(^$|[0-9]{10})")
+	@NotBlank
+	private String phonenumber;
+	@Pattern(regexp="(^$|[0-9]{10})")
+	@NotBlank
+	private String parentpno;
+	@NotEmpty
+	private String Address;
+	public Integer getRollNo() {
+		return RollNo;
+	}
+	public void setRollNo(Integer rollNo) {
+		RollNo = rollNo;
+	}
+	public String getMail() {
+		return mail;
+	}
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+	public String getPhonenumber() {
+		return phonenumber;
+	}
+	public void setPhonenumber(String phonenumber) {
+		this.phonenumber = phonenumber;
+	}
+	public String getParentpno() {
+		return parentpno;
+	}
+	public void setParentpno(String parentpno) {
+		this.parentpno = parentpno;
+	}
+	public String getAddress() {
+		return Address;
+	}
+	public void setAddress(String address) {
+		Address = address;
+	}
+	
+	
+}

@@ -1,0 +1,10 @@
+server:
+  port: 8082
+
+fees:
+  semester:
+    amount: 50000
+  hostel:
+    amount: 30000
+  bus:
+    amount: 10000

@@ -1,0 +1,5 @@
+package com.sms.student.mapper;
+
+public class StudentMapper {
+
+}

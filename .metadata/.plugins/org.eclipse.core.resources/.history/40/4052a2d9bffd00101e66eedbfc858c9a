@@ -1,0 +1,14 @@
+package com.sms.student.controller;
+
+@RestController
+@RequestMapping("/student")
+public class StudentController {
+
+	@Autowired
+	private StudentService studentService;
+	
+	@PostMapping
+	public ResponseEntity<?> addStudent(@Valid @RequestBody CreateStudentRequest)
+	
+	
+}

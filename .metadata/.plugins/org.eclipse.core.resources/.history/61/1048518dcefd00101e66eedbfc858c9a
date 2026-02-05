@@ -1,0 +1,138 @@
+package com.sms.student.dto.request;
+
+import com.sms.student.enums.AdmissionMode;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+
+public class CreateStudentRequest {
+	@NotBlank
+	private String name;
+	@Email
+	@NotBlank
+	private String mail;
+	@Pattern(regexp="(^$|[0-9]{10})")
+	@NotBlank
+	private String phonenumber;
+	@Size(min = 3)
+	@NotBlank
+	private String mothername;
+	@Size(min = 3)
+	@NotBlank
+	private String fathername;
+	@Pattern(regexp="(^$|[0-9]{10})")
+	@NotBlank
+	private String parentpno;
+	@NotEmpty
+	private String Address;
+	@NotBlank
+	private String school;
+	@NotNull
+	private Byte tenthper;
+	@NotNull
+	private Byte twelfthper;
+	@NotBlank
+	private String department;
+	@NotEmpty
+	private AdmissionMode admissionmode;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getMail() {
+		return mail;
+	}
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+	public String getPhonenumber() {
+		return phonenumber;
+	}
+	public void setPhonenumber(String phonenumber) {
+		this.phonenumber = phonenumber;
+	}
+	public String getMothername() {
+		return mothername;
+	}
+	public void setMothername(String mothername) {
+		this.mothername = mothername;
+	}
+	public String getFathername() {
+		return fathername;
+	}
+	public void setFathername(String fathername) {
+		this.fathername = fathername;
+	}
+	public String getParentpno() {
+		return parentpno;
+	}
+	public void setParentpno(String parentpno) {
+		this.parentpno = parentpno;
+	}
+	public String getAddress() {
+		return Address;
+	}
+	public void setAddress(String address) {
+		Address = address;
+	}
+	public String getSchool() {
+		return school;
+	}
+	public void setSchool(String school) {
+		this.school = school;
+	}
+	public Byte getTenthper() {
+		return tenthper;
+	}
+	public void setTenthper(Byte tenthper) {
+		this.tenthper = tenthper;
+	}
+	public Byte getTwelfthper() {
+		return twelfthper;
+	}
+	public void setTwelfthper(Byte twelfthper) {
+		this.twelfthper = twelfthper;
+	}
+	public String getDepartment() {
+		return department;
+	}
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+	public AdmissionMode getAdmissionmode() {
+		return admissionmode;
+	}
+	public void setAdmissionmode(AdmissionMode admissionmode) {
+		this.admissionmode = admissionmode;
+	}
+	public CreateStudentRequest(@NotBlank String name, @Email @NotBlank String mail,
+			@Pattern(regexp = "(^$|[0-9]{10})") @NotBlank String phonenumber,
+			@Size(min = 3) @NotBlank String mothername, @Size(min = 3) @NotBlank String fathername,
+			@Pattern(regexp = "(^$|[0-9]{10})") @NotBlank String parentpno, @NotEmpty String address,
+			@NotBlank String school, @NotNull Byte tenthper, @NotNull Byte twelfthper, @NotBlank String department,
+			@NotEmpty AdmissionMode admissionmode) {
+		super();
+		this.name = name;
+		this.mail = mail;
+		this.phonenumber = phonenumber;
+		this.mothername = mothername;
+		this.fathername = fathername;
+		this.parentpno = parentpno;
+		Address = address;
+		this.school = school;
+		this.tenthper = tenthper;
+		this.twelfthper = twelfthper;
+		this.department = department;
+		this.admissionmode = admissionmode;
+	}
+	public CreateStudentRequest() {
+		super();
+	}
+	
+	
+}
