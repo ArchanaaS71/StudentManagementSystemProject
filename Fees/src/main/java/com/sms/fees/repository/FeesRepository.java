@@ -15,4 +15,6 @@ public interface FeesRepository extends JpaRepository<Fees, Long> {
     List<Fees> findByRollNoAndFeeType(Integer rollNo, FeeType feeType);
 
     List<Fees> findByRollNoAndStatus(Integer rollNo, PaymentStatus status);
-}
+    List<Fees> findByStatus(PaymentStatus status);
+    List<Fees> findByFeeType(FeeType feeType);
+ }

@@ -54,4 +54,16 @@ public class FeesController {
 
         return feesService.getFeesByRollNoAndStatus(rollNo, status);
 }
+    @GetMapping("/status/{status}")
+    public List<FeesResponse> getFeesByStatus(
+            @PathVariable PaymentStatus status) {
+
+        return feesService.getFeesByStatus(status);
+    }
+
+    @GetMapping("/type/{feeType}")
+    public List<FeesResponse> getFeesByStatusAndType(@PathVariable FeeType feeType) {
+
+        return feesService.getFeesByFeeType(feeType);
+    }
 }

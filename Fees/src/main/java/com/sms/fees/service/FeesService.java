@@ -19,5 +19,10 @@ public interface FeesService {
     List<FeesResponse> getFeesByRollNoAndFeeType(Integer rollNo, FeeType feeType);
 
     List<FeesResponse> getFeesByRollNoAndStatus(Integer rollNo, PaymentStatus status);
+    
+    List<FeesResponse> getFeesByStatus(PaymentStatus status);
+
+	List<FeesResponse> getFeesByFeeType(FeeType feeType);
+    
 }
 

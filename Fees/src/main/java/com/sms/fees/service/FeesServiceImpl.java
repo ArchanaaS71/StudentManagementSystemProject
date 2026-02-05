@@ -111,6 +111,24 @@ public class FeesServiceImpl implements FeesService {
                 .map(FeesMapper::toResponse)
                 .collect(Collectors.toList());
     }
+    @Override
+    public List<FeesResponse> getFeesByStatus(PaymentStatus status) {
+
+        return feesRepository.findByStatus(status)
+                .stream()
+                .map(FeesMapper::toResponse)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<FeesResponse> getFeesByFeeType(FeeType feeType) {
+
+        return feesRepository.findByFeeType(feeType)
+                .stream()
+                .map(FeesMapper::toResponse)
+                .collect(Collectors.toList());
+    }
+
 
 
 }
