@@ -2,6 +2,7 @@ package com.sms.attendance.service;
 
 import com.sms.attendance.dto.request.BulkAttendanceRequest;
 import com.sms.attendance.dto.request.MarkAttendanceRequest;
+import com.sms.attendance.dto.response.AttendanceEligibilityResponse;
 import com.sms.attendance.dto.response.AttendanceResponse;
 import com.sms.attendance.dto.response.AttendanceSummaryResponse;
 
@@ -19,6 +20,7 @@ public interface AttendanceService {
     
     List<AttendanceResponse> markBulkAttendance(BulkAttendanceRequest request);
 
+    AttendanceEligibilityResponse checkEligibility(Integer rollNo,String subject);
 
 }
 

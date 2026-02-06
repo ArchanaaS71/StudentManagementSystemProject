@@ -2,6 +2,7 @@ package com.sms.attendance.controller;
 
 import com.sms.attendance.dto.request.BulkAttendanceRequest;
 import com.sms.attendance.dto.request.MarkAttendanceRequest;
+import com.sms.attendance.dto.response.AttendanceEligibilityResponse;
 import com.sms.attendance.dto.response.AttendanceResponse;
 import com.sms.attendance.dto.response.AttendanceSummaryResponse;
 import com.sms.attendance.service.AttendanceService;
@@ -53,4 +54,12 @@ public class AttendanceController {
             @PathVariable String subject) {
         return attendanceService.getAttendanceSummary(rollNo, subject);
     }
+    @GetMapping("/roll/{rollNo}/subject/{subject}/eligibility")
+    public AttendanceEligibilityResponse checkEligibility(
+            @PathVariable Integer rollNo,
+            @PathVariable String subject) {
+
+        return attendanceService.checkEligibility(rollNo, subject);
+    }
+
 }

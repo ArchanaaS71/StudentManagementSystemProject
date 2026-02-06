@@ -3,6 +3,7 @@ package com.sms.attendance.service;
 import com.sms.attendance.client.StudentClient;
 import com.sms.attendance.dto.request.BulkAttendanceRequest;
 import com.sms.attendance.dto.request.MarkAttendanceRequest;
+import com.sms.attendance.dto.response.AttendanceEligibilityResponse;
 import com.sms.attendance.dto.response.AttendanceResponse;
 import com.sms.attendance.dto.response.AttendanceSummaryResponse;
 import com.sms.attendance.entity.Attendance;
@@ -124,5 +125,32 @@ public class AttendanceServiceImpl implements AttendanceService {
                 .map(AttendanceMapper::toResponse)
                 .collect(Collectors.toList());
     }
+    @Override
+    public AttendanceEligibilityResponse checkEligibility(
+            Integer rollNo,
+            String subject) {
+
+        Long total = attendanceRepository
+                .countByRollNoAndSubject(rollNo, subject);
+
+        Long present = attendanceRepository
+                .countByRollNoAndSubjectAndStatus(
+                        rollNo, subject, AttendanceStatus.PRESENT);
+
+        double percentage = total == 0
+                ? 0.0
+                : (present * 100.0) / total;
+
+        AttendanceEligibilityResponse response =
+                new AttendanceEligibilityResponse();
+
+        response.setRollNo(rollNo);
+        response.setSubject(subject);
+        response.setAttendancePercentage(percentage);
+        response.setEligible(percentage >= 75.0);
+
+        return response;
+    }
+
 
 }
